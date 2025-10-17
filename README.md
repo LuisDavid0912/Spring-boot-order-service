@@ -1,4 +1,4 @@
-<img width="724" height="834" alt="Screenshot 2025-10-16 at 12 01 42 p m" src="https://github.com/user-attachments/assets/2920b72b-6810-4cd9-b24f-c91081c92b47" /><img width="1077" height="436" alt="Screenshot 2025-10-16 at 8 48 19 p m" src="https://github.com/user-attachments/assets/54705eac-dea9-475e-aa9b-11a4b067213c" /># 🧾 Order Management Service API
+# 🧾 Order Management Service API
 
 ### Overview  
 This project is a **RESTful API** for managing e-commerce orders, built with **Spring Boot** and **Java 17**.  
