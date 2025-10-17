@@ -126,3 +126,76 @@ GET
 DELETE
 <img width="718" height="632" alt="Screenshot 2025-10-16 at 12 07 33 p m" src="https://github.com/user-attachments/assets/4d3e625d-2478-4d16-bb64-b84b224b3e93" />
 
+## 📄 Professional Services Proposal
+
+
+This project serves as a clear example of the professional, high-quality software solutions I provide. Below is a sample proposal outlining how I can help your business build a similar robust and scalable backend system.
+
+Luis David Martínez Gutiérrez
+
+Data Engineer & Software Developer
+
+Contact: luisdavidmtz3@gmail.com | Location: Monterrey, N.L., Mexico
+
+Date: October 17, 2025
+
+1. Introduction
+My objective is to deliver robust and scalable software solutions that solve critical needs in e-commerce operations. I guarantee high-quality development, on-time delivery, and a great cost-benefit ratio for your company.
+
+2. Project Scope: "Custom Order Management API"
+This service includes the design, development, and deployment of a central RESTful API for order management, enabling your system to process transactions reliably, securely, and at scale.
+
+Key Activities:
+
+Activity 1: Design and Development of the Core API with Spring Boot, including CRUD operations (Create, Read, Update, Delete).
+
+Activity 2: Implementation of environment profiles (development, production) to ensure secure operations and prevent production misconfigurations.
+
+Activity 3: Security configuration for sensitive data (e.g., database credentials) using environment variables, avoiding exposure of critical information in the codebase.
+
+Activity 4: Development of a full suite of automated tests (unit and integration) to ensure long-term software quality and stability.
+
+3. Deliverables
+Upon project completion, you will receive:
+
+✅ Full Source Code: Hosted in a private Git repository (GitHub/GitLab) with full access for your team.
+
+✅ Interactive API Documentation (Swagger): A self-documented web portal for your developers to easily view and test every API endpoint.
+
+✅ Postman Collection: A ready-to-use file for easily testing all service endpoints.
+
+✅ Technical Handover Session: A meeting to explain the project's architecture and deployment process to your technical team.
+
+4. Estimated Timeline
+Phase
+
+Estimated Duration
+
+Phase 1 – Analysis & Architecture Design
+
+1 Week
+
+Phase 2 – Core API Development (CRUD)
+
+2 Weeks
+
+Phase 3 – Environment Setup & Testing
+
+2 Weeks
+
+Phase 4 – Final Delivery & Documentation
+
+1 Week
+
+Total Estimated Time:
+
+6 Weeks
+
+5. Client Benefits
+Scalable Solution: An architecture designed to grow with your business needs.
+
+Secure Operations: Separation of configurations and secrets management prevents critical failures and protects your data.
+
+High-Quality Software: Automated testing reduces bugs and simplifies future maintenance.
+
+Technical Independence: Comprehensive documentation empowers your in-house team to maintain and evolve the system with ease.
