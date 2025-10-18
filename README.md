@@ -191,7 +191,53 @@ Total Estimated Time:
 
 6 Weeks
 
-5. Client Benefits
+5. Economic Investment
+Below are flexible pricing options designed to fit different project needs and budgets. Rates are competitive, reflecting my profile as a recently graduated engineer ready to deliver high-impact solutions.
+
+Option
+
+Description
+
+Price (MXN)
+
+Price (USD)
+
+A: Fixed Project
+
+A flat rate for the entire project scope described above. Ideal for clear, defined budgets.
+
+$65,000
+
+$3,600
+
+B: Hourly Rate
+
+Maximum flexibility. Billed weekly based on hours invested. Perfect for evolving projects.
+
+$300 / hr
+
+$18 / hr
+
+C: Project Plus
+
+Includes the Fixed Project scope plus a 3-month basic support package (up to 5 hours/month).
+
+$68,000
+
+$3,800
+
+Prices shown are for professional services only and do not include IVA, infrastructure costs (servers, domains), or third-party licenses.
+
+6. Payment Conditions
+40% advance payment upon proposal acceptance to begin the project.
+
+30% payment upon completion of Phase 2 (Core API Development).
+
+30% final payment upon project delivery.
+
+This quote is valid for 30 days from the date listed above.
+
+7. Client Benefits
 Scalable Solution: An architecture designed to grow with your business needs.
 
 Secure Operations: Separation of configurations and secrets management prevents critical failures and protects your data.
