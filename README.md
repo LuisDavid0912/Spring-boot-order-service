@@ -245,3 +245,43 @@ Secure Operations: Separation of configurations and secrets management prevents 
 High-Quality Software: Automated testing reduces bugs and simplifies future maintenance.
 
 Technical Independence: Comprehensive documentation empowers your in-house team to maintain and evolve the system with ease.
+
+
+<details>
+<summary><strong>Sprint 2: Running with Environment Profiles</strong></summary>
+
+This application is configured with Environment Profiles to separate development (dev) settings from production (prod) settings.
+
+dev profile (default): Uses an in-memory H2 database and enables the H2 console. Perfect for local development.
+
+prod profile: Configured for a PostgreSQL database and secures the database password using an environment variable.
+
+Running with the Production Profile
+To run the application using the prod profile, you first need to set the required environment variable and then specify the profile during launch.
+
+1. Set the Environment Variable
+This variable holds the database password securely, preventing it from being stored in the source code.
+
+On macOS/Linux:
+
+export DB_PASSWORD="your_secure_password_here"
+
+On Windows:
+
+set DB_PASSWORD="your_secure_password_here"
+
+2. Run the Application with the prod Profile
+Use the -Dspring-boot.run.profiles flag to specify the active profile:
+
+On macOS/Linux:
+
+./mvnw spring-boot:run -Dspring-boot.run.profiles=prod
+
+On Windows:
+
+.\mvnw.cmd spring-boot:run -Dspring-boot.run.profiles=prod
+
+The application will now start on port 8081 and attempt to connect to a PostgreSQL database using the credentials you provided.
+
+</details>
+

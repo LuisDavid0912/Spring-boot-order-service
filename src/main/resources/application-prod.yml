@@ -1,0 +1,18 @@
+# PRODUCTION PROFILE SETTINGS
+
+spring:
+  # PostgreSQL Database Settings
+  datasource:
+    url: jdbc:postgresql://localhost:5432/order_db_prod
+    username: prod_user
+    # IMPORTANT: The password is not hardcoded.
+    # It will be read from a system environment variable called DB_PASSWORD.
+    password: ${DB_PASSWORD}
+  jpa:
+    hibernate:
+      # This command automatically updates the database schema when the app starts.
+      # Useful for production, but use with caution.
+      ddl-auto: update
+
+server:
+  port: 8081 # Often, production runs on a different port

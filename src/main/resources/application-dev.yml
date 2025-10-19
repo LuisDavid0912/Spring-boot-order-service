@@ -1,0 +1,16 @@
+# DEVELOPMENT PROFILE SETTINGS
+
+spring:
+  # H2 Database Settings 
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+  # H2 Console Settings (enabled only for dev)
+  h2:
+    console:
+      enabled: true
