@@ -246,6 +246,34 @@ High-Quality Software: Automated testing reduces bugs and simplifies future main
 
 Technical Independence: Comprehensive documentation empowers your in-house team to maintain and evolve the system with ease.
 
+🧠 Sprint 2 Team Decisions
+<details>
+<summary><strong>Click to expand Sprint 2 decisions and learnings</strong></summary>
+
+🛡️ Implementing Environment Profiles for Security and Flexibility
+The primary goal of Sprint 2 was to mature the application's configuration, moving from a single setup to a professional, multi-environment structure. This directly addresses the core problem presented in the challenge narrative, where a misconfiguration in a production environment caused critical failures.
+
+Key Decisions:
+
+Adoption of YAML Configuration (.yml):
+
+Decision: Migrated from a single .properties file to multiple .yml files.
+
+Justification: YAML's hierarchical structure is far superior for managing complex configurations and defining multiple profiles within a single, readable format. It makes the distinction between environments clean and intuitive.
+
+Creation of dev and prod Profiles:
+
+Decision: Created two distinct profiles: application-dev.yml for local development and application-prod.yml for a production-ready setup.
+
+Justification: This separation is crucial. The dev profile is optimized for speed and ease of use (H2 in-memory database, H2 console enabled), while the prod profile is configured for robustness and security (PostgreSQL connection, secrets managed separately). This prevents development tools from ever being active in a production environment.
+
+Securing Credentials with Environment Variables:
+
+Decision: The production database password is not hardcoded. Instead, it is loaded from an environment variable (${DB_PASSWORD}).
+
+Justification: This is the most critical security decision of this sprint. Hardcoding secrets in source code is a major security vulnerability. By using environment variables, the application's code remains secure and can be safely stored in any repository. The actual secrets are managed on the server, completely separate from the codebase, following industry best practices.
+
+</details>
 
 <details>
 <summary><strong>Sprint 2: Running with Environment Profiles</strong></summary>
