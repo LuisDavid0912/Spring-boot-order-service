@@ -162,37 +162,23 @@ Total Estimated Time:
 5. Economic Investment
 Below are flexible pricing options designed to fit different project needs and budgets. Rates are competitive, reflecting my profile as a recently graduated engineer ready to deliver high-impact solutions.
 
-Option
-
-Description
-
-Price (MXN)
-
-Price (USD)
-
 A: Fixed Project
 
 A flat rate for the entire project scope described above. Ideal for clear, defined budgets.
 
-$65,000
-
-$3,600
+$65,000 MXN / $3,600 USD
 
 B: Hourly Rate
 
 Maximum flexibility. Billed weekly based on hours invested. Perfect for evolving projects.
 
-$300 / hr
-
-$18 / hr
+$300 MXN / hr / $18 USD / hr
 
 C: Project Plus
 
 Includes the Fixed Project scope plus a 3-month basic support package (up to 5 hours/month).
 
-$68,000
-
-$3,800
+$68,000 MXN / $3,800 USD
 
 Prices shown are for professional services only and do not include IVA, infrastructure costs (servers, domains), or third-party licenses.
 
