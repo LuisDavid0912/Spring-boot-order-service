@@ -313,3 +313,31 @@ The application will now start on port 8081 and attempt to connect to a PostgreS
 
 </details>
 
+🧠 Sprint 3 Team Decisions
+<details>
+<summary><strong>Click to expand Sprint 3 decisions and learnings</strong></summary>
+
+🛡️ Ensuring Quality with Automated Testing and Interactive Documentation
+Sprint 3 focused on elevating the project's quality, reliability, and ease of use. The goal was to build a robust application that is not only functional but also easy for other developers to understand and safe to modify in the future.
+
+Key Decisions:
+
+API Documentation with Swagger (OpenAPI):
+
+Decision: Integrated the springdoc-openapi library to automatically generate interactive API documentation.
+
+Justification: A good API is a well-documented API. Instead of writing and maintaining static documentation manually (which quickly becomes outdated), Swagger generates a live, interactive UI directly from the source code. This allows other developers (or even front-end clients) to understand, test, and integrate with the API in minutes, drastically reducing integration time and errors. It directly addresses Juan Ventura's suggestion in the challenge narrative.
+
+Implementation of a Two-Layer Testing Strategy:
+
+Decision: Created both Unit Tests for the service layer and Integration Tests for the controller layer.
+
+Justification: This two-layer approach ensures comprehensive quality control:
+
+Unit Tests (OrderServiceTest): These tests focus on a single "unit" (the service logic) in isolation. By "mocking" the database repository, we can verify that the business rules (like setting a default status) work correctly without the overhead of a real database. This makes the tests extremely fast and precise.
+
+Integration Tests (OrderControllerTest): These tests validate the entire workflow, from receiving a web request to interacting with the database. They confirm that all the layers of the application (Controller, Service, Repository) work together harmoniously. Using @Transactional, we ensure that each test runs with a clean database, guaranteeing reliable and repeatable results.
+
+This comprehensive testing suite acts as a "safety net," allowing for future modifications and extensions with confidence, knowing that any breaking changes will be caught automatically.
+
+</details>
