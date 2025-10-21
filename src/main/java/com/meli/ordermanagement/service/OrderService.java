@@ -1,14 +1,17 @@
 package com.meli.ordermanagement.service;
 
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Optional;
-
+import com.meli.ordermanagement.dto.CreateOrderRequestDTO;
+import com.meli.ordermanagement.dto.OrderResponseDTO;
+import com.meli.ordermanagement.dto.UpdateOrderRequestDTO;
+import com.meli.ordermanagement.model.Order;
+import com.meli.ordermanagement.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.meli.ordermanagement.model.Order;
-import com.meli.ordermanagement.repository.OrderRepository;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * This is the "Brain" of the application (a Service).
@@ -39,60 +42,74 @@ public class OrderService {
     }
 
     /**
-     * The business logic for creating a new order.
+     * The business logic for creating a new order using a DTO.
      *
-     * @param order The basic order info from the user.
-     * @return The final, saved order (now with an ID, date, and status).
+     * @param requestDTO The "form" with the basic order info from the user.
+     * @return The final, saved order, converted to a response DTO.
      */
-    public Order createOrder(Order order) {
+    public OrderResponseDTO createOrder(CreateOrderRequestDTO requestDTO) {
+        // Convert the incoming DTO to a database Entity
+        Order order = new Order();
+        order.setCustomerName(requestDTO.getCustomerName());
+        order.setTotalAmount(requestDTO.getTotalAmount());
+        
         // This is our business logic:
         // 1. Set the order's date to the exact time it was created.
         order.setOrderDate(LocalDateTime.now());
         // 2. Set the default status to "Pending".
         order.setStatus("Pending");
-        
+
         // 3. Tell the repository to save this new order to the database.
-        return orderRepository.save(order);
+        Order savedOrder = orderRepository.save(order);
+
+        // Convert the saved Entity back to a DTO for the response
+        return convertToDTO(savedOrder);
     }
 
     /**
-     * Logic for getting a list of all orders.
+     * Logic for getting a list of all orders, returned as DTOs.
      *
-     * @return A list of every order in the database.
+     * @return A list of every order in the database, converted to DTOs.
      */
-    public List<Order> getAllOrders() {
-        return orderRepository.findAll();
+    public List<OrderResponseDTO> getAllOrders() {
+        return orderRepository.findAll()
+                .stream()
+                .map(this::convertToDTO) // Convert each Order to an OrderResponseDTO
+                .collect(Collectors.toList());
     }
 
     /**
-     * Logic for finding one specific order.
-     * We return an "Optional" because the order might not exist,
-     * and this is a safe way to handle that possibility.
+     * Logic for finding one specific order, returned as a DTO.
+     * We return an "Optional" because the order might not exist.
      *
      * @param id The ID of the order to find.
-     * @return An Optional that might contain the order, or might be empty.
+     * @return An Optional that might contain the order DTO, or might be empty.
      */
-    public Optional<Order> getOrderById(Long id) {
-        return orderRepository.findById(id);
+    public Optional<OrderResponseDTO> getOrderById(Long id) {
+        return orderRepository.findById(id).map(this::convertToDTO);
     }
 
     /**
-     * Logic for updating an existing order.
+     * Logic for updating an existing order using a DTO.
      *
      * @param id           The ID of the order to update.
-     * @param orderDetails An Order object containing the new information.
-     * @return An Optional containing the updated order, or empty if the ID wasn't found.
+     * @param requestDTO An Order object containing the new information.
+     * @return An Optional containing the updated order DTO, or empty if the ID wasn't found.
      */
-    public Optional<Order> updateOrder(Long id, Order orderDetails) {
+    public Optional<OrderResponseDTO> updateOrder(Long id, UpdateOrderRequestDTO requestDTO) {
         // First, we find the order we want to update.
         return orderRepository.findById(id)
                 .map(existingOrder -> {
-                    // If we find it, we update its fields with the new details.
-                    existingOrder.setCustomerName(orderDetails.getCustomerName());
-                    existingOrder.setStatus(orderDetails.getStatus());
-                    existingOrder.setTotalAmount(orderDetails.getTotalAmount());
+                    // If we find it, we update its fields with the new details from the DTO.
+                    existingOrder.setCustomerName(requestDTO.getCustomerName());
+                    existingOrder.setStatus(requestDTO.getStatus());
+                    existingOrder.setTotalAmount(requestDTO.getTotalAmount());
+                    
                     // Finally, we save the changed order back to the database.
-                    return orderRepository.save(existingOrder);
+                    Order updatedOrder = orderRepository.save(existingOrder);
+
+                    // Convert the updated entity to a DTO for the response
+                    return convertToDTO(updatedOrder);
                 });
     }
 
@@ -110,5 +127,22 @@ public class OrderService {
                     orderRepository.delete(order);
                     return true; // Report success.
                 }).orElse(false); // Otherwise, report failure (it wasn't found).
+    }
+
+    /**
+     * Private helper method to convert a database Order entity into a response DTO.
+     * This avoids repeating code and separates concerns.
+     *
+     * @param order The database entity.
+     * @return The response DTO.
+     */
+    private OrderResponseDTO convertToDTO(Order order) {
+        OrderResponseDTO dto = new OrderResponseDTO();
+        dto.setId(order.getId());
+        dto.setCustomerName(order.getCustomerName());
+        dto.setOrderDate(order.getOrderDate());
+        dto.setStatus(order.getStatus());
+        dto.setTotalAmount(order.getTotalAmount());
+        return dto;
     }
 }
