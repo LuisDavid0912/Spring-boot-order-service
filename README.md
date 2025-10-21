@@ -166,19 +166,19 @@ A: Fixed Project
 
 A flat rate for the entire project scope described above. Ideal for clear, defined budgets.
 
-$65,000 MXN / $3,600 USD
+$35,000 MXN / $1,700 USD
 
 B: Hourly Rate
 
 Maximum flexibility. Billed weekly based on hours invested. Perfect for evolving projects.
 
-$300 MXN / hr / $18 USD / hr
+$400 MXN / hr / $22 USD / hr
 
 C: Project Plus
 
 Includes the Fixed Project scope plus a 3-month basic support package (up to 5 hours/month).
 
-$68,000 MXN / $3,800 USD
+$40,000 MXN / $2,170 USD
 
 Prices shown are for professional services only and do not include IVA, infrastructure costs (servers, domains), or third-party licenses.
 
@@ -203,7 +203,7 @@ Technical Independence: Comprehensive documentation empowers your in-house team 
 </details>
 
 
-## 🧠 Sprint 1 Team Decisions
+🧠 Sprint 1 Team Decisions
 
 <details>
 <summary><strong>Click to expand Sprint 1 decisions and learnings</strong></summary>
