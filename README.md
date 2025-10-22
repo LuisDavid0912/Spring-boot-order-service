@@ -336,4 +336,33 @@ Integration Tests (OrderControllerTest): These tests validate the entire workflo
 
 This comprehensive testing suite acts as a "safety net," allowing for future modifications and extensions with confidence, knowing that any breaking changes will be caught automatically.
 
+ 🛡️ Ensuring Quality with Automated Testing and Interactive Documentation:
+ 
+Sprint 3 focused on elevating the project's quality, reliability, and ease of use. The goal was to build a robust application that is not only functional but also easy for other developers to understand and safe to modify in the future.
+
+Key Decisions:
+
+API Documentation with Swagger (OpenAPI):
+
+Decision: Integrated the springdoc-openapi library to automatically generate interactive API documentation.
+
+Justification: A good API is a well-documented API. Instead of writing and maintaining static documentation manually (which quickly becomes outdated), Swagger generates a live, interactive UI directly from the source code. This allows other developers to understand, test, and integrate with the API in minutes, drastically reducing integration time and errors. It directly addresses Juan Ventura's suggestion in the challenge narrative.
+
+Implementation of a Two-Layer Testing Strategy:
+
+Decision: Created both Unit Tests for the service layer and Integration Tests for the controller layer.
+
+Justification: This two-layer approach ensures comprehensive quality control:
+
+Unit Tests (OrderServiceTest): These tests focus on a single "unit" (the service logic) in isolation. By "mocking" the database repository, we can verify that the business rules work correctly without the overhead of a real database. This makes the tests extremely fast and precise.
+
+Integration Tests (OrderControllerTest): These tests validate the entire workflow, from receiving a web request to interacting with the database. They confirm that all the layers of the application (Controller, Service, Repository) work together harmoniously.
+
+Implementing API Security with Spring Security:
+
+Decision: Added the spring-boot-starter-security dependency to protect all API endpoints.
+
+Justification: An API without security is a major vulnerability. By implementing Basic Auth, we ensure that only authenticated users can access the system's data. We created a custom SecurityConfig to define permanent, in-memory users (user and admin) with encoded passwords, replacing Spring's insecure default password. We also explicitly permitted public access to the documentation (/swagger-ui) and database console (/h2-console) to maintain developer usability while securing the core API. This establishes a strong foundation for future role-based access control.
+
+</details>
 </details>
